@@ -1,9 +1,17 @@
 package com.evgeniyisaev.spring;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+@Component
+@Scope
 public class Dog implements Pet {
-//    private String name;
+    //    private String name;
     public Dog() {
-        System.out.println("Dog is created!");
+        System.out.println("Dog bean is created!");
     }
 
     @Override
@@ -11,10 +19,12 @@ public class Dog implements Pet {
         System.out.println("Bow-wow");
     }
 
+    @PostConstruct
     public void init() {
         System.out.println("Class Dog: init method");
     }
 
+    @PreDestroy
     public void destroy() {
         System.out.println("Class Dog: destroy method");
     }
